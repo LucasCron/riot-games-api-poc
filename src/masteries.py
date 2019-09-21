@@ -1,4 +1,4 @@
-from src.api.champion_mastery_v4 import get_mastery_by_summoner
+from src.api.champion_mastery_v4 import get_mastery_by_summoner, get_scores_by_summoner
 from src.api.data_dragon import get_champions
 
 if __name__ == '__main__':
@@ -21,7 +21,11 @@ if __name__ == '__main__':
         total_level += champ_level
         champ_score = champion['championPoints']
         total_score += champ_score
-        print("Champion: {}, Level: {}, Score: {}".format(champ_name, champ_level, champ_score))
+        print("Champion: {} - Level: {} - Score: {}".format(champ_name, champ_level, champ_score))
 
     print("Total level: {}".format(total_level))
     print("Total score: {}".format(total_score))
+
+    api_total_score = get_scores_by_summoner(summoner_name)
+
+    print("Total score from api: {}".format(api_total_score))
