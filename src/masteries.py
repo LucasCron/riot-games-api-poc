@@ -5,21 +5,21 @@ if __name__ == '__main__':
 
     summoner_name = "Lu the Dirty"
     champion_masteries_by_summoner_response = get_mastery_by_summoner(summoner_name)
-    ddragon_response_json = get_champions()
+    champion_data = get_champions()
 
-    champ_key_to_name_dict = {}
+    champion_keys_to_names = {}
     # Make map for key -> name
-    for (name, key) in ddragon_response_json['data'].items():
-        champ_key_to_name_dict[str(key['key'])] = str(name)
+    for (champion_name, champion_key) in champion_data['data'].items():
+        champion_keys_to_names[str(champion_key['key'])] = str(champion_name)
 
     total_level = 0
     total_score = 0
-    for item in champion_masteries_by_summoner_response:
-        champ_id = item['championId']
-        champ_name = champ_key_to_name_dict[str(champ_id)]
-        champ_level = item['championLevel']
+    for champion in champion_masteries_by_summoner_response:
+        champ_id = champion['championId']
+        champ_name = champion_keys_to_names[str(champ_id)]
+        champ_level = champion['championLevel']
         total_level += champ_level
-        champ_score = item['championPoints']
+        champ_score = champion['championPoints']
         total_score += champ_score
         print("Champion: {}, Level: {}, Score: {}".format(champ_name, champ_level, champ_score))
 
