@@ -1,5 +1,5 @@
 from src.api.base_api import get_from_riot_api
-from src.api.champion_v4 import get_summoner_by_name
+from src.api.summoner_v4 import get_summoner_by_name
 
 base_url = "https://na1.api.riotgames.com"
 mastery_by_summoner_url = "{}/lol/champion-mastery/v4/champion-masteries/by-summoner/{}"
