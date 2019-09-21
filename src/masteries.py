@@ -1,11 +1,9 @@
 from src.api.champion_mastery_v4 import get_mastery_by_summoner
-from src.api.champion_v4 import get_summoner_by_name
 from src.api.data_dragon import get_champions
 
 if __name__ == '__main__':
 
     summoner_name = "Lu the Dirty"
-    summoner_by_name_response = get_summoner_by_name(summoner_name)
     champion_masteries_by_summoner_response = get_mastery_by_summoner(summoner_name)
     ddragon_response_json = get_champions()
 
