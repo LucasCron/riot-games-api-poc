@@ -1,5 +1,6 @@
 from src.api.champion_mastery_v4 import get_mastery_by_summoner, get_scores_by_summoner
 from src.api.data_dragon import get_champions
+from src.util.riot_utils import get_champion_key_to_name_dict
 
 if __name__ == '__main__':
 
@@ -7,10 +8,7 @@ if __name__ == '__main__':
     champion_masteries_by_summoner_response = get_mastery_by_summoner(summoner_name)
     champion_data = get_champions()
 
-    champion_keys_to_names = {}
-    # Make map for key -> name
-    for (champion_name, champion_key) in champion_data['data'].items():
-        champion_keys_to_names[str(champion_key['key'])] = str(champion_name)
+    champion_keys_to_names = get_champion_key_to_name_dict()
 
     total_level = 0
     total_score = 0
